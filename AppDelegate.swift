@@ -16,7 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        //AVOSCloud.setApplicationId("rknkd3jh2x6i5pstemt9kxn7smt2iyf4tlduptwmc85qekag", clientKey: "nakeqqivpslhx990i0epuw4x3fdnqfwakllkj5wwb26etdy2")
+    AVOSCloud.setApplicationId("xqbqp3jr39p1mfptkswia72icqkk6i2ic3vi4q1tbpu7ce8b",clientKey:"cfs0hpk9ai3f8kiwua7atnri8hrleodvipjy0dofj70ebbno")
+
+        
+        AVAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        AVOSCloud.setVerbosePolicy(kAVVerboseShow)
+        AVLogger.addLoggerDomain(AVLoggerDomainIM)
+        AVLogger.addLoggerDomain(AVLoggerDomainCURL)
+        //AVLogger.setLoggerLevelMask()
+        
+        let version = String.bridgeToObjectiveC(UIDevice.currentDevice().systemVersion)().doubleValue
+
+        let setting = UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil)
+        application.registerUserNotificationSettings(setting)
+        application.registerForRemoteNotifications()
+    
+        
+        if !DSCommon.sharedInstance.userLogin {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            self.window?.rootViewController = (storyBoard.instantiateViewControllerWithIdentifier("loginView") as! UIViewController)
+        }
+
+        
         return true
     }
 
@@ -42,6 +65,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let currentInstallation = AVInstallation.currentInstallation()
+        currentInstallation.setDeviceTokenFromData(deviceToken)
+        currentInstallation.saveInBackground()
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        if (application.applicationState != UIApplicationState.Active){
+            AVAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
+        }
     }
 
     // MARK: - Core Data stack

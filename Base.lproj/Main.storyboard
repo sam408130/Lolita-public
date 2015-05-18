@@ -1,25 +1,243 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ElY-XM-VN5">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="oab-DZ-fei">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tabBarController id="ElY-XM-VN5" customClass="MainTabBarController" customModule="Lolita_public" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="GQ3-iz-Glg" customClass="MainTabBar" customModule="Lolita_public" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <outlet property="MainTabBar" destination="GQ3-iz-Glg" id="6No-Do-aYh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="339-cO-stz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-457" y="-72"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="2gu-5N-Y2E">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="UfE-r0-GXJ" customClass="AddViewController" customModule="Lolita_public" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="149" sectionHeaderHeight="22" sectionFooterHeight="22" id="kAN-vi-4gO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="149" id="X6a-9m-BF3" customClass="AddTextCell" customModule="Lolita_public" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X6a-9m-BF3" id="gS9-3a-RSB">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83e-1e-cah">
+                                            <rect key="frame" x="8" y="8" width="584" height="133"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="X6a-9m-BF3" id="Iwu-v8-Vio"/>
+                                            </connections>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="83e-1e-cah" firstAttribute="top" secondItem="gS9-3a-RSB" secondAttribute="top" constant="8" id="b3y-Q0-euU"/>
+                                        <constraint firstItem="83e-1e-cah" firstAttribute="leading" secondItem="gS9-3a-RSB" secondAttribute="leading" constant="8" id="d5A-oR-jr5"/>
+                                        <constraint firstAttribute="bottom" secondItem="83e-1e-cah" secondAttribute="bottom" constant="8" id="gpl-a3-i21"/>
+                                        <constraint firstAttribute="trailing" secondItem="83e-1e-cah" secondAttribute="trailing" constant="8" id="u4M-Cu-4Va"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textView" destination="83e-1e-cah" id="NpQ-3b-iVy"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="86" id="kTe-H3-dxN" customClass="AddImageCell" customModule="Lolita_public" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kTe-H3-dxN" id="wjD-le-bs4">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ba6-np-iZm">
+                                            <rect key="frame" x="8" y="8" width="584" height="70"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="Z4s-Nk-gW2">
+                                                <size key="itemSize" width="70" height="70"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddImageCollection" id="aLw-Hn-x9N" customClass="AddImageCollectionCell" customModule="Lolita_public" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eP5-Q8-ga9">
+                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="eP5-Q8-ga9" secondAttribute="trailing" id="Tcf-09-Jpy"/>
+                                                        <constraint firstAttribute="bottom" secondItem="eP5-Q8-ga9" secondAttribute="bottom" id="cdE-nR-TeS"/>
+                                                        <constraint firstItem="eP5-Q8-ga9" firstAttribute="leading" secondItem="aLw-Hn-x9N" secondAttribute="leading" id="pWA-fJ-yhJ"/>
+                                                        <constraint firstItem="eP5-Q8-ga9" firstAttribute="top" secondItem="aLw-Hn-x9N" secondAttribute="top" id="uQj-V6-mGE"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="imageView" destination="eP5-Q8-ga9" id="zXL-Sx-BOh"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                            <connections>
+                                                <outlet property="dataSource" destination="kTe-H3-dxN" id="wxG-12-Dar"/>
+                                                <outlet property="delegate" destination="kTe-H3-dxN" id="O9n-ck-vz5"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ba6-np-iZm" firstAttribute="top" secondItem="wjD-le-bs4" secondAttribute="top" constant="8" id="1n9-Nu-En7"/>
+                                        <constraint firstAttribute="bottom" secondItem="ba6-np-iZm" secondAttribute="bottom" constant="8" id="2fk-ky-dG6"/>
+                                        <constraint firstItem="ba6-np-iZm" firstAttribute="leading" secondItem="wjD-le-bs4" secondAttribute="leading" constant="8" id="o8h-7m-9m2"/>
+                                        <constraint firstAttribute="trailing" secondItem="ba6-np-iZm" secondAttribute="trailing" constant="8" id="s4d-XB-KpB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="AddImageCollectionView" destination="ba6-np-iZm" id="tkZ-DG-9Ob"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UfE-r0-GXJ" id="Ezv-vC-ebA"/>
+                            <outlet property="delegate" destination="UfE-r0-GXJ" id="5Ad-p2-8fQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ILn-Yh-ZwA"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v9j-R1-4eX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1259" y="-72"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IWE-Yj-uae">
+            <objects>
+                <navigationController storyboardIdentifier="Compose" automaticallyAdjustsScrollViewInsets="NO" id="3N5-kv-EsK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7oO-mG-bFF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UfE-r0-GXJ" kind="relationship" relationship="rootViewController" id="61E-JB-aRA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cqm-xd-WGt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447" y="-72"/>
+        </scene>
+        <!--Loign View Controller-->
+        <scene sceneID="UxR-5i-ZZl">
+            <objects>
+                <viewController storyboardIdentifier="loginView" id="Nli-2N-eO9" customClass="LoignViewController" customModule="Lolita_public" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MNh-eL-WjM"/>
+                        <viewControllerLayoutGuide type="bottom" id="PcY-w5-P0m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yn6-ff-Md7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIX-3T-1Cq">
+                                <rect key="frame" x="86" y="461" width="150" height="30"/>
+                                <state key="normal" title="已有账号登录">
+                                    <color key="titleColor" red="0.97647064920000004" green="0.98431378599999997" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSignUp:" destination="Nli-2N-eO9" eventType="touchUpInside" id="4Ra-ul-sGL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqU-WT-rWl">
+                                <rect key="frame" x="119" y="499" width="82" height="30"/>
+                                <state key="normal" title="帮助">
+                                    <color key="titleColor" red="0.97647064920000004" green="0.98431378599999997" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fV6-kg-DdR">
+                                <rect key="frame" x="15" y="125" width="290" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lolita" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-Dx-4aK">
+                                        <rect key="frame" x="66" y="18" width="158" height="58"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名或邮箱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="55o-C5-RHA">
+                                        <rect key="frame" x="8" y="110" width="274" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="onEmail:" destination="Nli-2N-eO9" eventType="editingDidBegin" id="QiV-GM-hRE"/>
+                                            <action selector="onEmail:" destination="Nli-2N-eO9" eventType="editingDidEnd" id="oIw-Ex-Nod"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLp-NV-4PK">
+                                        <rect key="frame" x="8" y="148" width="274" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="onPassword:" destination="Nli-2N-eO9" eventType="editingDidEnd" id="ZnO-bI-XgC"/>
+                                            <action selector="onPassword:" destination="Nli-2N-eO9" eventType="editingDidBegin" id="lCY-us-w1g"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d6-Wn-XGG">
+                                        <rect key="frame" x="85" y="194" width="121" height="35"/>
+                                        <state key="normal" title="注册Lolita">
+                                            <color key="titleColor" red="0.97647064920000004" green="0.98431378599999997" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signup:" destination="Nli-2N-eO9" eventType="touchUpInside" id="glr-Nm-Jps"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="nFa-Bh-IDE" appends="YES" id="A61-j4-CrR"/>
+                        </connections>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="loginContentView" destination="fV6-kg-DdR" id="umU-gR-uce"/>
+                        <outlet property="password" destination="PLp-NV-4PK" id="AR4-J6-coV"/>
+                        <outlet property="signUpButton" destination="2d6-Wn-XGG" id="NZf-5u-uxm"/>
+                        <outlet property="signUpToggleButton" destination="qIX-3T-1Cq" id="cbi-2D-kiS"/>
+                        <outlet property="username" destination="55o-C5-RHA" id="mzK-bb-D3F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3M0-2W-ygl" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nFa-Bh-IDE">
+                    <connections>
+                        <action selector="endEditing:" destination="Nli-2N-eO9" id="EVe-cQ-WBE"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1256" y="-88"/>
         </scene>
     </scenes>
 </document>
